@@ -46,6 +46,9 @@ RUN chown -R perforce:p4admin $P4ROOT
 USER perforce
 RUN p4d -r $P4ROOT -jr $P4ROOT/checkpoint;
 
+# upgrade database
+RUN p4d -r $P4ROOT -xu;
+
 ENTRYPOINT p4d
 
 # Expose port
